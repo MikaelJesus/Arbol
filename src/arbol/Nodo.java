@@ -15,7 +15,10 @@ public class Nodo<T> {
     private Nodo<T> izquierda;
     private Nodo<T> derecha;
 
-    
+    public Nodo(){}
+    public Nodo(T dato){
+        this.dato=dato;    
+    }
     public T getDato() {
         return dato;
     }
