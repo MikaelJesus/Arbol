@@ -10,7 +10,7 @@ package arbol;
  *
  * @author Alumnos
  */
-public class Arbol <T>{
+public class Arbol <T> extends Nodo{
     private Nodo<T> raiz;
 
     public Nodo<T> getRaiz() {
@@ -20,14 +20,16 @@ public class Arbol <T>{
     public void setRaiz(Nodo<T> raiz) {
         this.raiz = raiz;
     }
-    public void Recorrer(){
-        PilaArreglo <T> pila=new PilaArreglo<>();
-        Nodo <T> aux;
-        while(raiz!=null){
-            
-        }
+    public Arbol()
+    {
+        raiz = null;
     }
-    public void RecorrerPreorden(Nodo<T> nodo){
+    
+    public Arbol(Nodo nodo1, Nodo nodo2)
+    {
+        raiz = super.agrearNodo(nodo1, nodo2);
+    }
+    /*public void RecorrerPreorden(Nodo<T> nodo){
         if(nodo!=null){
             System.out.print(nodo.getDato());
             RecorrerPreorden(nodo.getIzquierda());
@@ -47,5 +49,12 @@ public class Arbol <T>{
             RecorrerPosorden(nodo.getDerecha());
             System.out.print(nodo.getDato());
         }
+    }*/
+    public void insertarNode(Nodo nodo)
+    {
+        this.raiz.frecuencia = nodo.frecuencia;
+        this.raiz.c = nodo.c;
+        this.raiz.izquierda = nodo.izquierda;
+        this.raiz.derecha = nodo.derecha;
     }
 }

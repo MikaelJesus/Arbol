@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package arbol;
 
 /**
@@ -11,36 +10,33 @@ package arbol;
  * @author Alumnos
  */
 public class Nodo<T> {
-    private T dato;
-    private Nodo<T> izquierda;
-    private Nodo<T> derecha;
 
-    public Nodo(){}
-    public Nodo(T dato){
-        this.dato=dato;    
-    }
-    public T getDato() {
-        return dato;
-    }
+    public int frecuencia;
+    public char c;
+    public Nodo izquierda;
+    public Nodo derecha;
 
-    public void setDato(T dato) {
-        this.dato = dato;
-    }
-
-    public Nodo<T> getIzquierda() {
-        return izquierda;
-    }
-
-    public void setIzquierda(Nodo<T> izquierda) {
+    public Nodo(int frecuencia, char c, Nodo izquierda, Nodo derecha) {
+        this.frecuencia = frecuencia;
+        this.c = c;
         this.izquierda = izquierda;
-    }
-
-    public Nodo<T> getDerecha() {
-        return derecha;
-    }
-
-    public void setDerecha(Nodo<T> derecha) {
         this.derecha = derecha;
     }
-    
+
+    public Nodo() {
+    }
+
+    public Nodo agrearNodo(Nodo nodo1, Nodo nodo2) {
+        if (nodo1.frecuencia < nodo2.frecuencia) {
+            izquierda = nodo1;
+            derecha = nodo2;
+        } else {
+            derecha = nodo1;
+            izquierda = nodo2;
+        }
+       frecuencia = nodo1.frecuencia + nodo2.frecuencia;
+
+        return this;
+    }
+
 }
